@@ -20,9 +20,36 @@ namespace SemNomeAinda
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region construtor  
         public MainWindow()
         {
             InitializeComponent();
+        }
+        #endregion
+
+        bool teste1 = false, teste2 = false;
+        private void Somar(object sender, RoutedEventArgs e)
+        {
+            lblResultado.Text = $"{double.Parse(txtPrimeiro.Text) + double.Parse(txtSegundo.Text)}";
+        }
+
+        private void Teste1(object sender, TextChangedEventArgs e)
+        {
+            double t;
+            teste1 = double.TryParse((sender as TextBox).Text, out t);
+            Testar();
+        }
+
+        private void Testar()
+        {
+            btnSomar.IsEnabled = (teste1 && teste2);
+        }
+
+        private void Teste2(object sender, TextChangedEventArgs e)
+        {
+            double t;
+            teste2 = double.TryParse((sender as TextBox).Text, out t);
+            Testar();
         }
     }
 }
