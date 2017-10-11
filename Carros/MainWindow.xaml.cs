@@ -13,26 +13,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Atividade_11_10
+namespace Carros
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region contrutor
+        #region construtor
         public MainWindow()
         {
             InitializeComponent();
         }
-#endregion
 
 
 
-        private void Testar(object sender, RoutedEventArgs e)
+        #endregion
+        List<string> teste = new List<string>();
+        private void Adicionar(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("<html><body>teste</body></html>");
-            
+            //
+            lstLista.Items.Add(string.Format(cboxCarro.Text + " " + cboxCor.Text + " " + cboxMotor.Text));
+
         }
+
+       
     }
 }

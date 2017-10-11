@@ -1,0 +1,55 @@
+﻿<Window x:Class="Carros.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Carros"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="Height" Width="300">
+    <StackPanel Margin="5">
+        <Grid Margin="0 0 0 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+           
+            
+            <StackPanel >
+                <TextBlock Text="Carro:"/>
+                <ComboBox SelectedIndex="0"
+                          x:Name="cboxCarro">
+                    <ComboBoxItem>Fox</ComboBoxItem>
+                    <ComboBoxItem>Novo Gol</ComboBoxItem>
+                    <ComboBoxItem>Cross Fox</ComboBoxItem>
+                    <ComboBoxItem>Golf</ComboBoxItem>
+                    <ComboBoxItem>Space Fox</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="5 0">
+                <TextBlock Text="Cor"/>
+                <ComboBox SelectedIndex="0"
+                          x:Name="cboxCor">
+                    <ComboBoxItem>Vermelho</ComboBoxItem>
+                    <ComboBoxItem>Branco</ComboBoxItem>
+                    <ComboBoxItem>Preto</ComboBoxItem>
+                    <ComboBoxItem>Cinza</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="Motor"/>
+                <ComboBox SelectedIndex="0"
+                          x:Name="cboxMotor">
+                    <ComboBoxItem>1.0</ComboBoxItem>
+                    <ComboBoxItem>1.6</ComboBoxItem>
+                    <ComboBoxItem>2.0</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Button Content="Adicionar" Margin="0 0 0 5"
+                Click="Adicionar"/>
+        <ListView x:Name="lstLista" Height="70" Margin="0 0 0 5"/>
+    </StackPanel>
+</Window>
