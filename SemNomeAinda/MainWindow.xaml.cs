@@ -27,12 +27,18 @@ namespace SemNomeAinda
         }
         #endregion
 
-        bool teste1 = false, teste2 = false;
+        
         private void Somar(object sender, RoutedEventArgs e)
         {
-            lblResultado.Text = $"{double.Parse(txtPrimeiro.Text) + double.Parse(txtSegundo.Text)}";
+            double numero1 = double.Parse(txtPrimeiro.Text), numero2 = double.Parse(txtSegundo.Text), resultado = numero1 + numero2;
+            lblResultado.Text = $"{resultado}";
         }
 
+
+
+        #region botão de limpar
+
+        bool teste1 = false, teste2 = false;
         private void Teste1(object sender, TextChangedEventArgs e)
         {
             double t;
@@ -40,10 +46,7 @@ namespace SemNomeAinda
             Testar();
         }
 
-        private void Testar()
-        {
-            btnSomar.IsEnabled = (teste1 && teste2);
-        }
+       
 
         private void Teste2(object sender, TextChangedEventArgs e)
         {
@@ -51,5 +54,10 @@ namespace SemNomeAinda
             teste2 = double.TryParse((sender as TextBox).Text, out t);
             Testar();
         }
+        private void Testar()
+        {
+            btnSomar.IsEnabled = (teste1 && teste2);
+        }
+        #endregion
     }
 }

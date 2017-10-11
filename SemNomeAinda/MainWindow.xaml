@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" SizeToContent="Height" Width="200">
     <StackPanel Margin="5">
+        
         <TextBlock Text="Primeiro Numero"/>
 
         <TextBox x:Name="txtPrimeiro"

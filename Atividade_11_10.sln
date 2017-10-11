@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carros", "Carros\Carros.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SemNomeAinda", "SemNomeAinda\SemNomeAinda.csproj", "{44C46878-1FF6-4921-9A11-61F956F057C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calculadora", "calculadora\calculadora.csproj", "{6DC2F9D9-9C48-425D-9CC9-38CEF971ECF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{44C46878-1FF6-4921-9A11-61F956F057C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44C46878-1FF6-4921-9A11-61F956F057C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44C46878-1FF6-4921-9A11-61F956F057C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC2F9D9-9C48-425D-9CC9-38CEF971ECF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC2F9D9-9C48-425D-9CC9-38CEF971ECF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC2F9D9-9C48-425D-9CC9-38CEF971ECF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC2F9D9-9C48-425D-9CC9-38CEF971ECF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
