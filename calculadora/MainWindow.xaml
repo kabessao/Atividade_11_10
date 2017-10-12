@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" SizeToContent="Height" Width="200">
     <Border Padding="5">
         <StackPanel>
+            
+            
+            <!--#region Painel de cima-->
             <StackPanel>
                 <TextBlock x:Name="txtValor1"
                            HorizontalAlignment="Right"/>
@@ -16,7 +21,16 @@
                            Text="0"/>
 
             </StackPanel>
-
+            <!--#endregion-->
+            
+            <!--#region botões da parte de cima-->
+            <Grid Height="50">
+                
+                
+            </Grid>
+            <!--#endregion-->
+            
+            <!--#region botões da parte de baixo-->
             <Grid Height="200">
                 
                 
@@ -133,6 +147,9 @@
 
 
             </Grid>
+            <!--#endregion-->
+            
+            
         </StackPanel>
     </Border>
 </Window>
