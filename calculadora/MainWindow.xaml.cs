@@ -56,7 +56,10 @@ namespace calculadora
 
         private void Numero(object sender, RoutedEventArgs e)
         {
-            txtValor2.Text += (sender as Button).Content.ToString();
+            if (txtValor2.Text != "0")
+                txtValor2.Text += (sender as Button).Content.ToString();
+            else
+                txtValor2.Text = (sender as Button).Content.ToString();
         }
 
         private string VerOpção(string op)
