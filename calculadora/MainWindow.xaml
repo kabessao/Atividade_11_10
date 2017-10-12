@@ -9,15 +9,18 @@
     <Border Padding="5">
         <StackPanel>
             <StackPanel>
-                <TextBlock x:Name="txtResultado"
+                <TextBlock x:Name="txtValor1"
                            HorizontalAlignment="Right"/>
-                <TextBlock x:Name="txtValor"
+                <TextBlock x:Name="txtValor2"
                            HorizontalAlignment="Right"
                            Text="0"/>
 
             </StackPanel>
 
             <Grid Height="200">
+                
+                
+                <!--#region formatação-->
                 <Grid.Resources>
                     <Style TargetType="Button">
                         <Setter Property="Margin" Value="1.5"/>
@@ -35,7 +38,9 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
+                <!--#endregion-->
+                
+                <!--#region Numeros-->
                 <Button Content="1"
                         Grid.Column="0"
                         Grid.Row="0"
@@ -90,10 +95,41 @@
                         Grid.ColumnSpan="2"
                         Grid.Row="3"
                         Click="Numero"/>
+                <!--#endregion-->
+                
+                <!--#region Operações-->
 
+                <Button Content="+"
+                        Grid.Column="3"
+                        Grid.Row="0"
+                        Click="Operacao"/>
+
+                <Button Content="-"
+                        Grid.Column="3"
+                        Grid.Row="1"
+                        Click="Operacao"/>
+                
+                <Button Content="x"
+                        Grid.Column="3"
+                        Grid.Row="2"
+                        Click="Operacao"/>
+                
+                <Button Content="/"
+                        Grid.Column="3"
+                        Grid.Row="3"
+                        Click="Operacao"/>
+
+                <!--#endregion-->
+                
+                <!--#region Igual-->
+                <Button Content="="
+                        Grid.Column="2"
+                        Grid.Row="3"
+                        Click="Igual"/>
+                
+                <!--#endregion-->
                 
                 
-
 
 
             </Grid>
