@@ -20,11 +20,22 @@ namespace calculadora
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Construtor
+
+
         public MainWindow()
         {
             InitializeComponent();
         }
+        #endregion
 
+
+        #region Operação
+        /// <summary>
+        /// Pega o texto dentro do botão para saber qual operação matematica usar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Operacao(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtValor1.Text))
@@ -44,7 +55,9 @@ namespace calculadora
             }
 
         }
+        #endregion
 
+        #region Botão de Igual
         private void Igual(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtValor1.Text))
@@ -53,7 +66,9 @@ namespace calculadora
                 txtValor1.Text = "";
             }
         }
+        #endregion
 
+        #region Numeros
         private void Numero(object sender, RoutedEventArgs e)
         {
             if (txtValor2.Text.Length == 25)
@@ -63,9 +78,11 @@ namespace calculadora
             else
                 txtValor2.Text = (sender as Button).Content.ToString();
 
-            
-        }
 
+        }
+        #endregion
+
+        #region Função VerOpção
         private string VerOpção(string op)
         {
             string opcao = "0";
@@ -100,14 +117,18 @@ namespace calculadora
             return "0";
 
         }
+        #endregion
 
+        #region LimparTudo
         private void LimparTudo(object sender, RoutedEventArgs e)
         {
             txtValor1.Text = "";
             txtValor2.Text = "0";
             //limpar tudo
         }
+        #endregion
 
+        #region Apagar
         private void Apagar(object sender, RoutedEventArgs e)
         {
             if (txtValor2.Text == "" && txtValor1.Text != "")
@@ -122,7 +143,9 @@ namespace calculadora
 
             //Apagar
         }
+        #endregion
 
+        #region Trocar Mais ou Menos
         private void MaisOuMenos(object sender, RoutedEventArgs e)
         {
             if (txtValor2.Text.IndexOf('-') == -1)
@@ -135,14 +158,20 @@ namespace calculadora
             }
             //mais ou menos
         }
+        #endregion
 
+        #region Adicionar ponto
         private void Ponto(object sender, RoutedEventArgs e)
         {
             if (txtValor2.Text.IndexOf('.') == -1)
                 txtValor2.Text += ".";
             //ponto
         }
+        #endregion
 
-        
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtTeste.Text = e.Key.ToString();
+        }
     }
 }

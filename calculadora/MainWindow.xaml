@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="Calculadora" SizeToContent="Height" Width="200">
+        KeyDown="Window_KeyDown"
+        Title="Calculadora" SizeToContent="Height" Width="240">
     <Border Padding="5">
         <StackPanel>
-            
-            
+
+            <TextBlock Text=""
+                       x:Name="txtTeste"/>
+
             <!--#region Painel de cima-->
             <StackPanel>
                 <TextBlock x:Name="txtValor1"
@@ -46,7 +49,7 @@
                 <Button Grid.Column="1"
                         Click="Apagar">
                     <Image Source="/Images/BackSpace.png"
-                           Margin="8"/>
+                           Margin="2"/>
                 </Button>
 
                 <Button Content="±"
