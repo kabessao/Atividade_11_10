@@ -56,18 +56,27 @@ namespace calculadora
 
         private void Numero(object sender, RoutedEventArgs e)
         {
+            if (txtValor2.Text.Length == 25)
+                return;
             if (txtValor2.Text != "0")
                 txtValor2.Text += (sender as Button).Content.ToString();
             else
                 txtValor2.Text = (sender as Button).Content.ToString();
+
+            
         }
 
         private string VerOpção(string op)
         {
+            string opcao = "0";
 
-            string opcao = op.Substring(op.Length - 1);
+            if (op.Length >= 3)
+                opcao = op.Substring(op.Length - 1);
+
             double valor1 = double.Parse(txtValor1.Text.ToString().Substring(0, txtValor1.Text.Length - 1)),
                 valor2 = double.Parse(txtValor2.Text);
+
+
             if (op.IndexOf('+') > 0)
             {
                 return $"{valor1 + valor2}";
@@ -82,7 +91,7 @@ namespace calculadora
             }
             else if (op.IndexOf('/') > 0)
             {
-                if (valor1 != 0 && valor2 != 0)
+                if (valor1 != 0 || valor2 != 0)
                 {
                     return $"{valor1 / valor2}";
                 }
@@ -91,5 +100,49 @@ namespace calculadora
             return "0";
 
         }
+
+        private void LimparTudo(object sender, RoutedEventArgs e)
+        {
+            txtValor1.Text = "";
+            txtValor2.Text = "0";
+            //limpar tudo
+        }
+
+        private void Apagar(object sender, RoutedEventArgs e)
+        {
+            if (txtValor2.Text == "" && txtValor1.Text != "")
+            {
+                txtValor2.Text = txtValor1.Text.Remove(txtValor1.Text.Length - 2);
+                txtValor1.Text = "";
+            }
+            else if (txtValor2.Text != "")
+            {
+                txtValor2.Text = txtValor2.Text.Substring(0, txtValor2.Text.Length - 1);
+            }
+
+            //Apagar
+        }
+
+        private void MaisOuMenos(object sender, RoutedEventArgs e)
+        {
+            if (txtValor2.Text.IndexOf('-') == -1)
+            {
+                txtValor2.Text = "-" + txtValor2.Text;
+            }
+            else if (txtValor2.Text.IndexOf('-') > -1)
+            {
+                txtValor2.Text = txtValor2.Text.Substring(1);
+            }
+            //mais ou menos
+        }
+
+        private void Ponto(object sender, RoutedEventArgs e)
+        {
+            if (txtValor2.Text.IndexOf('.') == -1)
+                txtValor2.Text += ".";
+            //ponto
+        }
+
+        
     }
 }

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" SizeToContent="Height" Width="200">
+        Title="Calculadora" SizeToContent="Height" Width="200">
     <Border Padding="5">
         <StackPanel>
             
@@ -25,8 +25,41 @@
             
             <!--#region botões da parte de cima-->
             <Grid Height="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin"
+                                Value="1.5"/>
+                    </Style>
+                </Grid.Resources>
+
+
+                <Button Content="C"
+                        Grid.Column="0"
+                        Click="LimparTudo"/>
+
+                <Button Grid.Column="1"
+                        Click="Apagar">
+                    <Image Source="/Images/BackSpace.png"
+                           Margin="8"/>
+                </Button>
+
+                <Button Content="±"
+                        Grid.Column="2"
+                        Click="MaisOuMenos"/>
                 
-                
+                <Button Content="."
+                        Grid.Column="3"
+                        Click="Ponto"
+                        FontSize="20"/>
+
+
+
             </Grid>
             <!--#endregion-->
             
