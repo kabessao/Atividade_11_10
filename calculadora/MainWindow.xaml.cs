@@ -20,6 +20,7 @@ namespace calculadora
     /// </summary>
     public partial class MainWindow : Window
     {
+
         #region Construtor
 
 
@@ -38,22 +39,27 @@ namespace calculadora
         /// <param name="e"></param>
         private void Operacao(object sender, RoutedEventArgs e)
         {
+            FiltroOperacao((sender as Button).Content.ToString());
+
+        }
+
+        private void FiltroOperacao(string texto)
+        {
             if (string.IsNullOrWhiteSpace(txtValor1.Text))
             {
-                txtValor1.Text = txtValor2.Text + " " + (sender as Button).Content.ToString();
+                txtValor1.Text = txtValor2.Text + " " + texto;
                 txtValor2.Text = "0";
             }
             else if (txtValor2.Text != "0")
             {
-                txtValor1.Text = VerOpção(txtValor1.Text) + " " + (sender as Button).Content.ToString();
+                txtValor1.Text = VerOpção(txtValor1.Text) + " " + texto;
                 txtValor2.Text = "0";
             }
 
             if (!string.IsNullOrWhiteSpace(txtValor2.Text))
             {
-                txtValor1.Text = txtValor1.Text.Remove(txtValor1.Text.Length - 1) + (sender as Button).Content.ToString();
+                txtValor1.Text = txtValor1.Text.Remove(txtValor1.Text.Length - 1) + texto;
             }
-
         }
         #endregion
 
@@ -73,12 +79,15 @@ namespace calculadora
         {
             if (txtValor2.Text.Length == 25)
                 return;
+            AdicionarNumero((sender as Button).Content.ToString());
+        }
+
+        private void AdicionarNumero(string input)
+        {
             if (txtValor2.Text != "0")
-                txtValor2.Text += (sender as Button).Content.ToString();
+                txtValor2.Text += input;
             else
-                txtValor2.Text = (sender as Button).Content.ToString();
-
-
+                txtValor2.Text = input;
         }
         #endregion
 
@@ -169,9 +178,55 @@ namespace calculadora
         }
         #endregion
 
+        #region Tecla Prescionada
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             txtTeste.Text = e.Key.ToString();
+            char eChar = e.Key.ToString().ToCharArray()[e.Key.ToString().Length - 1];
+
+            if ((char.IsDigit(eChar)) && 
+                (e.Key.ToString().Substring(0, e.Key.ToString().Length -1) == "NumPad" ||
+                e.Key.ToString().Substring(0, 1) == "D" && e.Key.ToString().Length == 2 )   )
+            {
+                if (txtValor2.Text.Length != 25)
+                {
+                    AdicionarNumero(eChar.ToString());
+                }
+            }
+            else
+            {
+                txtTeste.Text = e.Key.ToString();
+                if (e.Key == Key.Back)
+                {
+                    Apagar(null, null);
+                    return;
+                }
+                if (e.Key == Key.Multiply)
+                {
+                    FiltroOperacao("x");
+                    return;
+                }
+                if (e.Key == Key.OemPlus || e.Key == Key.Add)
+                {
+                    FiltroOperacao("+");
+                    return;
+                }
+                if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
+                {
+                    FiltroOperacao("-");
+                    return;
+                }
+                if (e.Key == Key.Divide || e.Key == Key.AbntC1)
+                {
+                    FiltroOperacao("/");
+                    return;
+                }
+                if (e.Key == Key.AbntC2 || e.Key == Key.OemPeriod)
+                {
+                    Ponto(null, null);
+                }
+            }
         }
+        #endregion
     }
 }

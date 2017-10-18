@@ -9,11 +9,13 @@
         WindowStartupLocation="CenterScreen"
         KeyDown="Window_KeyDown"
         Title="Calculadora" SizeToContent="Height" Width="240">
+
     <Border Padding="5">
         <StackPanel>
 
             <TextBlock Text=""
-                       x:Name="txtTeste"/>
+                       x:Name="txtTeste"
+                       HorizontalAlignment="Center"/>
 
             <!--#region Painel de cima-->
             <StackPanel>
@@ -25,7 +27,7 @@
 
             </StackPanel>
             <!--#endregion-->
-            
+
             <!--#region botões da parte de cima-->
             <Grid Height="50">
                 <Grid.ColumnDefinitions>
@@ -49,13 +51,13 @@
                 <Button Grid.Column="1"
                         Click="Apagar">
                     <Image Source="/Images/BackSpace.png"
-                           Margin="2"/>
+                           Margin="5"/>
                 </Button>
 
                 <Button Content="±"
                         Grid.Column="2"
                         Click="MaisOuMenos"/>
-                
+
                 <Button Content="."
                         Grid.Column="3"
                         Click="Ponto"
@@ -65,15 +67,20 @@
 
             </Grid>
             <!--#endregion-->
-            
+
             <!--#region botões da parte de baixo-->
             <Grid Height="200">
-                
-                
+
+
                 <!--#region formatação-->
                 <Grid.Resources>
                     <Style TargetType="Button">
                         <Setter Property="Margin" Value="1.5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="FontWeight" Value="Bold"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
                     </Style>
                 </Grid.Resources>
                 <Grid.ColumnDefinitions>
@@ -89,7 +96,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <!--#endregion-->
-                
+
                 <!--#region Numeros-->
                 <Button Content="1"
                         Grid.Column="0"
@@ -146,7 +153,7 @@
                         Grid.Row="3"
                         Click="Numero"/>
                 <!--#endregion-->
-                
+
                 <!--#region Operações-->
 
                 <Button Content="+"
@@ -158,34 +165,34 @@
                         Grid.Column="3"
                         Grid.Row="1"
                         Click="Operacao"/>
-                
+
                 <Button Content="x"
                         Grid.Column="3"
                         Grid.Row="2"
                         Click="Operacao"/>
-                
+
                 <Button Content="/"
                         Grid.Column="3"
                         Grid.Row="3"
                         Click="Operacao"/>
 
                 <!--#endregion-->
-                
+
                 <!--#region Igual-->
                 <Button Content="="
                         Grid.Column="2"
                         Grid.Row="3"
                         Click="Igual"/>
-                
+
                 <!--#endregion-->
-                
-                
+
+
 
 
             </Grid>
             <!--#endregion-->
-            
-            
+
+
         </StackPanel>
     </Border>
 </Window>
